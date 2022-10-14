@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ee2wkjil0tx4"]
+
+[ext_resource type="Texture2D" uid="uid://cuyupraxqelrq" path="res://Sprites/aspectRatioGuide.png" id="1_6lunb"]
+
+[node name="Node2d" type="Node2D"]
+
+[node name="SizeGuide" type="Sprite2D" parent="."]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_6lunb")
