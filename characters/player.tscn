@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://babu07def1gjl"]
+
+[ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
+[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://sprites/fred.png" id="2_ycs8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
+atlas = ExtResource("2_ycs8o")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e27te"]
+animations = [{
+"frames": [SubResource("AtlasTexture_f4s07")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkesg"]
+radius = 271.066
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+script = ExtResource("1_7u7se")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="CharacterBody2d"]
+position = Vector2(246, 195)
+frames = SubResource("SpriteFrames_e27te")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(228, 185)
+shape = SubResource("CircleShape2D_pkesg")
