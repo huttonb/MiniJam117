@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://ee2wkjil0tx4"]
+
+[ext_resource type="Texture2D" uid="uid://cuyupraxqelrq" path="res://Sprites/aspectRatioGuide.png" id="1_6lunb"]
+[ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="2_lxc5t"]
+[ext_resource type="Texture2D" uid="uid://bno7h62gvv7vr" path="res://Sprites/LoadedShellLarge.png" id="3_oclx0"]
+[ext_resource type="Script" path="res://RadialShellButton.gd" id="4_5p63f"]
+
+[node name="Node2d" type="Node2D"]
+
+[node name="SizeGuide" type="Sprite2D" parent="."]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_6lunb")
+
+[node name="Shotgun" parent="." instance=ExtResource("2_lxc5t")]
+position = Vector2(256, 307)
+
+[node name="RadialShellButton" type="TextureButton" parent="."]
+offset_left = 774.0
+offset_top = 503.0
+offset_right = 1030.0
+offset_bottom = 759.0
+texture_normal = ExtResource("3_oclx0")
+script = ExtResource("4_5p63f")
+
+[node name="Buttons" type="Control" parent="RadialShellButton"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShellButton1" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[node name="ShellButton2" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[node name="ShellButton3" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[node name="ShellButton4" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[node name="ShellButton5" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[node name="ShellButton6" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_oclx0")
+
+[connection signal="pressed" from="RadialShellButton" to="RadialShellButton" method="_on_radial_shell_button_pressed"]
