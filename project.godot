@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="MiniJam117"
+run/main_scene="res://TestScene.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/fullscreen=true
