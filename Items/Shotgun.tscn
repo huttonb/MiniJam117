@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdx6cubp2g0v3"]
+
+[ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://Sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
+[ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://Sprites/shotgunShells.png" id="2_1rg2s"]
+[ext_resource type="Texture2D" uid="uid://ulhqq1uvpixn" path="res://Sprites/shotgunBackLayer.png" id="3_cu2a2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic4vs"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snrhg"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxwks"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omn02"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqwjx"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sep1q"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkwbg"]
+atlas = ExtResource("1_irfuq")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqrss"]
+animations = [{
+"frames": [SubResource("AtlasTexture_ic4vs"), SubResource("AtlasTexture_snrhg"), SubResource("AtlasTexture_xxwks"), SubResource("AtlasTexture_omn02"), SubResource("AtlasTexture_jqwjx"), SubResource("AtlasTexture_sep1q"), SubResource("AtlasTexture_pkwbg")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shotgun" type="Node2D"]
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_bqrss")
+frame = 2
+
+[node name="SideSaddle" type="Sprite2D" parent="GunSprite"]
+texture = ExtResource("2_1rg2s")
+
+[node name="BackLayer" type="Sprite2D" parent="GunSprite"]
+show_behind_parent = true
+z_index = -1
+texture = ExtResource("3_cu2a2")
