@@ -24,8 +24,15 @@ func _shoot_shotgun():
 	var b = bullet.instantiate()
 	owner.add_child(b)
 	b.transform = %Shotgun/Muzzle.global_transform
+	_play_shotgun_sounds()
+
+func _play_shotgun_sounds():
 	%Shotgun/GunSprite/ShotgunShotSound.play()
-	
+	%Shotgun/GunSprite/ShotgunShotSound.connect(
+		"finished", 
+		func(): %Shotgun/GunSprite/ShotgunPumpSound.play()
+	)
+
 	
 func _look(delta):
 	var lookPos = (get_local_mouse_position().x > 0)
