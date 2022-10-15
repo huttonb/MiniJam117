@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name Shell
+
 @export var bullet: PackedScene
 
 # Called when the node enters the scene tree for the first time.
