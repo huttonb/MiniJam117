@@ -20,37 +20,43 @@ texture_normal = ExtResource("3_oclx0")
 script = ExtResource("4_5p63f")
 
 [node name="Buttons" type="Control" parent="RadialShellButton"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ShellButton1" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton2" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton3" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton4" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton5" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton6" type="TextureButton" parent="RadialShellButton/Buttons"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
