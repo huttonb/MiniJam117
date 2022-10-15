@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bdx6cubp2g0v3"]
 
-[ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
-[ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://sprites/shotgunShells.png" id="2_1rg2s"]
-[ext_resource type="Texture2D" uid="uid://ulhqq1uvpixn" path="res://sprites/shotgunBackLayer.png" id="3_cu2a2"]
+[ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://Sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
+[ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://Sprites/shotgunShells.png" id="2_1rg2s"]
+[ext_resource type="Texture2D" uid="uid://ulhqq1uvpixn" path="res://Sprites/shotgunBackLayer.png" id="3_cu2a2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ic4vs"]
 atlas = ExtResource("1_irfuq")
@@ -43,7 +43,7 @@ animations = [{
 [node name="Shotgun" type="Node2D"]
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(90.5, -25)
+position = Vector2(188, -19)
 scale = Vector2(0.994141, 1)
 frames = SubResource("SpriteFrames_bqrss")
 frame = 2
@@ -53,9 +53,15 @@ texture = ExtResource("2_1rg2s")
 
 [node name="BackLayer" type="Sprite2D" parent="GunSprite"]
 show_behind_parent = true
-position = Vector2(-11, 43)
+position = Vector2(7.04124, -1)
 z_index = -1
 texture = ExtResource("3_cu2a2")
 
+[node name="Pump" type="Marker2D" parent="GunSprite"]
+position = Vector2(73.4302, 17)
+
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(320, -32)
+
+[node name="Handle" type="Marker2D" parent="."]
+position = Vector2(94, 28)

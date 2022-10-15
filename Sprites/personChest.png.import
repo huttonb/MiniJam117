@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://otp4tbtbbpvs"
-path="res://.godot/imported/shotgunShells.png-7724ab2099cd80e171cb9061eea88a09.ctex"
+uid="uid://bo0iem14wwkci"
+path="res://.godot/imported/personChest.png-57e3946250887c887d0da8e84af4cd47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/shotgunShells.png"
-dest_files=["res://.godot/imported/shotgunShells.png-7724ab2099cd80e171cb9061eea88a09.ctex"]
+source_file="res://Sprites/personChest.png"
+dest_files=["res://.godot/imported/personChest.png-57e3946250887c887d0da8e84af4cd47.ctex"]
 
 [params]
 

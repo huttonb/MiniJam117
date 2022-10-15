@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://babu07def1gjl"]
+[gd_scene load_steps=12 format=3 uid="uid://babu07def1gjl"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
 [ext_resource type="PackedScene" uid="uid://2fdrxp5lrlw2" path="res://characters/bullets.tscn" id="2_230g1"]
-[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://sprites/fred.png" id="2_ycs8o"]
+[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
+[ext_resource type="Texture2D" uid="uid://bo0iem14wwkci" path="res://Sprites/personChest.png" id="5_6y2gm"]
+[ext_resource type="Texture2D" uid="uid://jp3a7f7vch5h" path="res://Sprites/personHead.png" id="6_nvn37"]
+[ext_resource type="Texture2D" uid="uid://bj3xh3nndykve" path="res://Sprites/personLeftArm.png" id="7_us786"]
+[ext_resource type="Texture2D" uid="uid://dv5cjcwifmo04" path="res://Sprites/personRightArm.png" id="8_iy170"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
 atlas = ExtResource("2_ycs8o")
@@ -25,6 +29,7 @@ script = ExtResource("1_7u7se")
 bullet = ExtResource("2_230g1")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(246, 195)
 frames = SubResource("SpriteFrames_e27te")
 
@@ -32,6 +37,35 @@ frames = SubResource("SpriteFrames_e27te")
 position = Vector2(228, 185)
 shape = SubResource("CircleShape2D_pkesg")
 
-[node name="Shotgun" parent="." instance=ExtResource("3_kb4fd")]
+[node name="BodySprite" type="Sprite2D" parent="."]
+position = Vector2(305, 216)
+z_index = 1
+texture = ExtResource("5_6y2gm")
+
+[node name="HeadSprite" type="Sprite2D" parent="BodySprite"]
+position = Vector2(-69, -99)
+texture = ExtResource("6_nvn37")
+offset = Vector2(69, 38)
+
+[node name="LeftArmSprite" type="Sprite2D" parent="BodySprite"]
 unique_name_in_owner = true
-position = Vector2(520, 31)
+position = Vector2(-168, -91)
+z_index = 1
+texture = ExtResource("7_us786")
+offset = Vector2(219, 45)
+
+[node name="Shotgun" parent="BodySprite/LeftArmSprite" instance=ExtResource("3_kb4fd")]
+unique_name_in_owner = true
+position = Vector2(57, 69)
+z_index = -1
+
+[node name="RightArmSprite" type="Sprite2D" parent="BodySprite"]
+unique_name_in_owner = true
+position = Vector2(181, -18)
+z_index = -1
+texture = ExtResource("8_iy170")
+offset = Vector2(-125, -24)
+
+[node name="RightShoulder" type="Marker2D" parent="BodySprite"]
+unique_name_in_owner = true
+position = Vector2(0.222046, -22.5049)

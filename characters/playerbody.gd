@@ -24,5 +24,10 @@ func _shoot_shotgun():
 	b.transform = %Shotgun/Muzzle.global_transform
 	
 func _look(delta):
-	%Shotgun.look_at(get_global_mouse_position())
+	%LeftArmSprite.look_at(get_global_mouse_position())
+	#%RightArmSprite.look_at(self.position)
+	%RightArmSprite.global_position = %Shotgun/GunSprite/Pump.global_position
+	%RightArmSprite.look_at(%RightShoulder.global_position) 
+	%RightArmSprite.rotate(PI)
+	#%Shotgun.look_at(get_global_mouse_position())
 	
