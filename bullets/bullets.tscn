@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2fdrxp5lrlw2"]
+[gd_scene load_steps=4 format=3 uid="uid://botnhi4puv33b"]
 
-[ext_resource type="Texture2D" uid="uid://c76v12gtjjn5s" path="res://sprites/bullet.png" id="1_6teyy"]
-[ext_resource type="Script" path="res://characters/bullets.gd" id="1_f1c22"]
+[ext_resource type="Texture2D" uid="uid://c76v12gtjjn5s" path="res://Sprites/bullet.png" id="1_6teyy"]
+[ext_resource type="Script" path="res://bullets/bullets.gd" id="1_f1c22"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mum53"]
 radius = 12.0

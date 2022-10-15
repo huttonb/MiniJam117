@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-@export var bullet: PackedScene
+@export var shell: PackedScene
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var aim_direction = Vector2.RIGHT
+
+func _process(delta):
+	aim_direction = global_position.direction_to(get_global_mouse_position())
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -19,9 +23,9 @@ func _input(event):
 		_shoot_shotgun()
 
 func _shoot_shotgun():
-	var b = bullet.instantiate()
-	owner.add_child(b)
-	b.transform = %Shotgun/Muzzle.global_transform
+	var s = shell.instantiate()
+	owner.add_child(s)
+	s.transform = %Shotgun/Muzzle.global_transform
 	
 func _look(delta):
 	%Shotgun.look_at(get_global_mouse_position())
