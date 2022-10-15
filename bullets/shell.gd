@@ -17,7 +17,3 @@ func _ready():
 func _clean():
 	await get_tree().create_timer(20).timeout
 	queue_free()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
