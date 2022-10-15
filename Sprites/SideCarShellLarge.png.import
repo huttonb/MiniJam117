@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp5sg1fgtxhkh"
-path="res://.godot/imported/SideCarShellLarge.png-29eb19f48b9d24551c1f6cc3ccb7cb72.ctex"
+path="res://.godot/imported/SideCarShellLarge.png-c8060db8033986b37d1e974f9cba00da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SideCarShellLarge.png"
-dest_files=["res://.godot/imported/SideCarShellLarge.png-29eb19f48b9d24551c1f6cc3ccb7cb72.ctex"]
+source_file="res://sprites/SideCarShellLarge.png"
+dest_files=["res://.godot/imported/SideCarShellLarge.png-c8060db8033986b37d1e974f9cba00da.ctex"]
 
 [params]
 

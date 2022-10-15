@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqeajq5l2t15a"
-path="res://.godot/imported/ShellLarge.png-5359af19e983f9d32d7afc6e69c43d29.ctex"
+path="res://.godot/imported/ShellLarge.png-ecc9da52d11a4b27c78550f1b03f69bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ShellLarge.png"
-dest_files=["res://.godot/imported/ShellLarge.png-5359af19e983f9d32d7afc6e69c43d29.ctex"]
+source_file="res://sprites/ShellLarge.png"
+dest_files=["res://.godot/imported/ShellLarge.png-ecc9da52d11a4b27c78550f1b03f69bb.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuyupraxqelrq"
-path="res://.godot/imported/aspectRatioGuide.png-7ba31ac5a016ae9702410bbe769c25c5.ctex"
+path="res://.godot/imported/aspectRatioGuide.png-b093a0ddf4a13cfdb6621319cfd31725.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/aspectRatioGuide.png"
-dest_files=["res://.godot/imported/aspectRatioGuide.png-7ba31ac5a016ae9702410bbe769c25c5.ctex"]
+source_file="res://sprites/aspectRatioGuide.png"
+dest_files=["res://.godot/imported/aspectRatioGuide.png-b093a0ddf4a13cfdb6621319cfd31725.ctex"]
 
 [params]
 
