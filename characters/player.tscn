@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://babu07def1gjl"]
+[gd_scene load_steps=8 format=3 uid="uid://br0ieayt4b1a6"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
-[ext_resource type="PackedScene" uid="uid://2fdrxp5lrlw2" path="res://characters/bullets.tscn" id="2_230g1"]
-[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://sprites/fred.png" id="2_ycs8o"]
+[ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="2_3bx78"]
+[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
@@ -22,7 +22,7 @@ radius = 271.066
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7u7se")
-bullet = ExtResource("2_230g1")
+shell = ExtResource("2_3bx78")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(246, 195)

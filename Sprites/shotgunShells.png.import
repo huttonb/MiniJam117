@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://otp4tbtbbpvs"
-path="res://.godot/imported/shotgunShells.png-784f8a63fe4d607779ef3e09aa779a4a.ctex"
+path="res://.godot/imported/shotgunShells.png-7724ab2099cd80e171cb9061eea88a09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/shotgunShells.png"
-dest_files=["res://.godot/imported/shotgunShells.png-784f8a63fe4d607779ef3e09aa779a4a.ctex"]
+source_file="res://Sprites/shotgunShells.png"
+dest_files=["res://.godot/imported/shotgunShells.png-7724ab2099cd80e171cb9061eea88a09.ctex"]
 
 [params]
 

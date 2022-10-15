@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk4ttr1wtfj8"]
+
+[ext_resource type="Script" path="res://bullets/shell.gd" id="1_dy522"]
+[ext_resource type="PackedScene" uid="uid://botnhi4puv33b" path="res://bullets/bullets.tscn" id="2_g4i7h"]
+
+[node name="Shell" type="Node2D"]
+script = ExtResource("1_dy522")
+bullet = ExtResource("2_g4i7h")

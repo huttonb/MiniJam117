@@ -53,4 +53,3 @@ func hide_menu():
 		tween.tween_property(b, "position", self.position, speed).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 		tween.tween_property(b, "scale", Vector2(0.5,0.5), speed).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(self._on_tween_completed)
-
