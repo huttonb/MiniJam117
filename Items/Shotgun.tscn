@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdx6cubp2g0v3"]
+[gd_scene load_steps=13 format=3 uid="uid://bdx6cubp2g0v3"]
 
 [ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://Sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
 [ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://Sprites/shotgunShells.png" id="2_1rg2s"]
 [ext_resource type="Texture2D" uid="uid://ulhqq1uvpixn" path="res://Sprites/shotgunBackLayer.png" id="3_cu2a2"]
+[ext_resource type="AudioStream" uid="uid://ca88jje0anmbx" path="res://sounds/shotgunshot.wav" id="4_wut32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ic4vs"]
 atlas = ExtResource("1_irfuq")
@@ -60,8 +61,14 @@ texture = ExtResource("3_cu2a2")
 [node name="Pump" type="Marker2D" parent="GunSprite"]
 position = Vector2(73.4302, 17)
 
+[node name="ShotgunShotSound" type="AudioStreamPlayer2D" parent="GunSprite"]
+unique_name_in_owner = true
+position = Vector2(-189.108, 19)
+scale = Vector2(1.00589, 1)
+stream = ExtResource("4_wut32")
+
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(320, -32)
+position = Vector2(423, -27)
 
 [node name="Handle" type="Marker2D" parent="."]
 position = Vector2(94, 28)

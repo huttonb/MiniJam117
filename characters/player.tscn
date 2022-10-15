@@ -34,11 +34,10 @@ position = Vector2(246, 195)
 frames = SubResource("SpriteFrames_e27te")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(228, 185)
 shape = SubResource("CircleShape2D_pkesg")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
-position = Vector2(305, 216)
+position = Vector2(66, 45)
 z_index = 1
 texture = ExtResource("5_6y2gm")
 
@@ -56,7 +55,7 @@ offset = Vector2(219, 45)
 
 [node name="Shotgun" parent="BodySprite/LeftArmSprite" instance=ExtResource("3_kb4fd")]
 unique_name_in_owner = true
-position = Vector2(57, 69)
+position = Vector2(42, 64)
 z_index = -1
 
 [node name="RightArmSprite" type="Sprite2D" parent="BodySprite"]
