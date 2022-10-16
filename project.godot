@@ -8,12 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node2D",
+"class": &"Shell",
+"language": &"GDScript",
+"path": "res://bullets/shell.gd"
+}]
+_global_script_class_icons={
+"Shell": ""
+}
+
 [application]
 
 config/name="MiniJam117"
 run/main_scene="res://TestScene.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
-config/icon="res://icon.svg"
+config/icon="res://chickenIcon.png"
 <<<<<<<HEADrun/main_scene="res://characters/player.tscn"
 
 [input]
