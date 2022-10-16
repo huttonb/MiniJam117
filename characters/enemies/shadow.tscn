@@ -1,0 +1,68 @@
+[gd_scene load_steps=16 format=3 uid="uid://yr4ykj251nqn"]
+
+[ext_resource type="Texture2D" uid="uid://cqwtdlrdhvlao" path="res://Sprites/Enemies/shadowBody.png" id="1_1hftt"]
+[ext_resource type="Texture2D" uid="uid://b3dkcvp3hb5o0" path="res://Sprites/Enemies/shadowNeck.png" id="2_d6ifp"]
+[ext_resource type="Texture2D" uid="uid://dp50tw7m2iu1b" path="res://Sprites/Enemies/shadowHead.png" id="3_chp8s"]
+[ext_resource type="Texture2D" uid="uid://7tkhd6diu5rp" path="res://Sprites/Enemies/shadowRightShoulder.png" id="4_qkeit"]
+[ext_resource type="Texture2D" uid="uid://bj3wslujewq0u" path="res://Sprites/Enemies/shadowRightArm.png" id="5_2b5fx"]
+[ext_resource type="Texture2D" uid="uid://dwblom47oecw1" path="res://Sprites/Enemies/shadowRightHand.png" id="6_j08md"]
+[ext_resource type="Texture2D" uid="uid://t3h3v32550gg" path="res://Sprites/Enemies/shadowLeftShoulder.png" id="7_1n4ym"]
+[ext_resource type="Texture2D" uid="uid://c3onvi8irc3m3" path="res://Sprites/Enemies/shadowLeftArm.png" id="8_55ka7"]
+[ext_resource type="Texture2D" uid="uid://cpfucyltjysg2" path="res://Sprites/Enemies/shadowLeftHand.png" id="9_4mmcu"]
+[ext_resource type="Texture2D" uid="uid://h44pu6shpxkt" path="res://Sprites/Enemies/shadowRightThigh.png" id="10_lb1ol"]
+[ext_resource type="Texture2D" uid="uid://mpgdq8nxu8s2" path="res://Sprites/Enemies/shadowRightLeg.png" id="11_6qo4o"]
+[ext_resource type="Texture2D" uid="uid://cvviqomokv7tv" path="res://Sprites/Enemies/shadowRightFoot.png" id="12_hd1vt"]
+[ext_resource type="Texture2D" uid="uid://g2cc5vhi1flq" path="res://Sprites/Enemies/shadowLeftThigh.png" id="13_87wki"]
+[ext_resource type="Texture2D" uid="uid://4qw7h30ymsot" path="res://Sprites/Enemies/shadowLeftLeg.png" id="14_svgtl"]
+[ext_resource type="Texture2D" uid="uid://dbokytib8aici" path="res://Sprites/Enemies/shadowLeftFoot.png" id="15_ud0qx"]
+
+[node name="shadow" type="Node2D"]
+
+[node name="Chest" type="Sprite2D" parent="."]
+texture = ExtResource("1_1hftt")
+
+[node name="Neck" type="Sprite2D" parent="Chest"]
+texture = ExtResource("2_d6ifp")
+
+[node name="Head" type="Sprite2D" parent="Chest/Neck"]
+texture = ExtResource("3_chp8s")
+
+[node name="RightShoulder" type="Sprite2D" parent="Chest"]
+position = Vector2(28, 55)
+rotation = -0.0779225
+texture = ExtResource("4_qkeit")
+
+[node name="RightArm" type="Sprite2D" parent="Chest/RightShoulder"]
+texture = ExtResource("5_2b5fx")
+
+[node name="RightHand" type="Sprite2D" parent="Chest/RightShoulder/RightArm"]
+texture = ExtResource("6_j08md")
+
+[node name="LeftShoulder" type="Sprite2D" parent="Chest"]
+texture = ExtResource("7_1n4ym")
+
+[node name="LeftArm" type="Sprite2D" parent="Chest/LeftShoulder"]
+texture = ExtResource("8_55ka7")
+
+[node name="LeftHand" type="Sprite2D" parent="Chest/LeftShoulder/LeftArm"]
+texture = ExtResource("9_4mmcu")
+
+[node name="RightThigh" type="Sprite2D" parent="Chest"]
+position = Vector2(-61, 10)
+texture = ExtResource("10_lb1ol")
+
+[node name="RightLeg" type="Sprite2D" parent="Chest/RightThigh"]
+texture = ExtResource("11_6qo4o")
+
+[node name="RightFoot" type="Sprite2D" parent="Chest/RightThigh/RightLeg"]
+texture = ExtResource("12_hd1vt")
+
+[node name="LeftThigh" type="Sprite2D" parent="Chest"]
+position = Vector2(19, -2)
+texture = ExtResource("13_87wki")
+
+[node name="LeftLeg" type="Sprite2D" parent="Chest/LeftThigh"]
+texture = ExtResource("14_svgtl")
+
+[node name="LeftFoot" type="Sprite2D" parent="Chest/LeftThigh/LeftLeg"]
+texture = ExtResource("15_ud0qx")
