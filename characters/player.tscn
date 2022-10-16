@@ -1,7 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://br0ieayt4b1a6"]
+[gd_scene load_steps=37 format=3 uid="uid://br0ieayt4b1a6"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
-[ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="2_3bx78"]
 [ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
 [ext_resource type="Texture2D" uid="uid://gpef6a5f5j61" path="res://Sprites/Player/ChickenBody.png" id="4_kvoqc"]
@@ -786,7 +785,6 @@ radius = 271.066
 collision_layer = 32
 collision_mask = 34
 script = ExtResource("1_7u7se")
-shell = ExtResource("2_3bx78")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://df6jhmkjl1gn7"]
+
+[ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="1_7jws1"]
+[ext_resource type="Script" path="res://bullets/sniperShell.gd" id="2_venj5"]
+
+[node name="Shell" instance=ExtResource("1_7jws1")]
+script = ExtResource("2_venj5")
