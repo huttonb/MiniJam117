@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd188yarpd6br"
-path="res://.godot/imported/chickenIcon.png-b01094d25c7a1efac41ada381103df46.ctex"
+uid="uid://cxly6txprljor"
+path="res://.godot/imported/brickTexture.png-962d113440c9efe1bc8ab8b04fdaf525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chickenIcon.png"
-dest_files=["res://.godot/imported/chickenIcon.png-b01094d25c7a1efac41ada381103df46.ctex"]
+source_file="res://Sprites/Terrain/brickTexture.png"
+dest_files=["res://.godot/imported/brickTexture.png-962d113440c9efe1bc8ab8b04fdaf525.ctex"]
 
 [params]
 

@@ -1,9 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://ee2wkjil0tx4"]
+[gd_scene load_steps=10 format=3 uid="uid://ee2wkjil0tx4"]
 
 [ext_resource type="Texture2D" uid="uid://cuyupraxqelrq" path="res://Sprites/aspectRatioGuide.png" id="1_6lunb"]
 [ext_resource type="Texture2D" uid="uid://bno7h62gvv7vr" path="res://Sprites/LoadedShellLarge.png" id="3_oclx0"]
 [ext_resource type="PackedScene" uid="uid://br0ieayt4b1a6" path="res://characters/player.tscn" id="4_2opxv"]
 [ext_resource type="Script" path="res://RadialShellButton.gd" id="4_5p63f"]
+[ext_resource type="Texture2D" uid="uid://djwjojybk78ot" path="res://Sprites/Terrain/BrickSheet.png" id="5_aixrj"]
+[ext_resource type="Texture2D" uid="uid://b773sx7dvo37l" path="res://Sprites/Terrain/BlackWallSheet.png" id="6_0jgnu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybsp0"]
+texture = ExtResource("5_aixrj")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfdni"]
+texture = ExtResource("6_0jgnu")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_cn21g"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 36
+physics_layer_1/collision_layer = 0
+physics_layer_1/collision_mask = 0
+sources/2 = SubResource("TileSetAtlasSource_ybsp0")
+sources/3 = SubResource("TileSetAtlasSource_tfdni")
 
 [node name="Node2d" type="Node2D"]
 
@@ -20,43 +83,37 @@ texture_normal = ExtResource("3_oclx0")
 script = ExtResource("4_5p63f")
 
 [node name="Buttons" type="Control" parent="RadialShellButton"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ShellButton1" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton2" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton3" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton4" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton5" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
 
 [node name="ShellButton6" type="TextureButton" parent="RadialShellButton/Buttons"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_oclx0")
@@ -68,6 +125,9 @@ current = true
 zoom = Vector2(0.5, 0.5)
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_cn21g")
 format = 2
+layer_0/tile_data = PackedInt32Array(1, 2, 1, 0, 2, 1, 65535, 2, 1, 131071, 2, 1, 131070, 2, 1, 65536, 2, 1, 65537, 2, 1, 65538, 2, 1, 2, 2, 1, 65534, 2, 1, 65533, 2, 1, 131069, 2, 1, 196605, 2, 1, 196606, 2, 1, 196607, 2, 1, 131072, 2, 1, 131073, 2, 1, 131074, 2, 1, 3, 2, 1, 65539, 2, 1, 131075, 2, 1, 131076, 2, 1, 65540, 2, 1, 4, 2, 1, 5, 2, 1, 65541, 2, 1, 131077, 2, 1, 6, 2, 1, 65542, 2, 1, 131078, 2, 1, 7, 2, 1, 65543, 2, 1, 131079, 2, 1, 131080, 2, 1, 65544, 2, 1, 8, 2, 1, 9, 2, 1, 65545, 2, 1, 131081, 2, 1, -65527, 2, 1, -65528, 2, 1, -65529, 2, 1, -65530, 2, 1, -65531, 2, 1, -65532, 2, 1, -65533, 2, 1, -65534, 2, 1, -65535, 2, 1, -65536, 2, 1, -1, 2, 1, -2, 2, 1, -3, 2, 1, -131063, 65539, 1, -131064, 3, 0, -131065, 65539, 0, -131066, 65539, 0, -131067, 65539, 1, -131068, 3, 1, -131069, 3, 0, -131070, 3, 1, -131071, 3, 0, -131072, 3, 1, -65537, 65539, 0, -65538, 3, 0, -65539, 65539, 1, -196600, 3, 1, -196601, 3, 0, -196602, 3, 0, -196603, 65539, 0, -196604, 3, 1, -196605, 65539, 1, -196606, 65539, 1, -196607, 3, 0, -196608, 3, 0, -131073, 3, 1, -131074, 65539, 1, -196599, 65539, 0, -196610, 3, 0, -131075, 65539, 0, -196611, 65539, 0, -196609, 3, 0, -262144, 3, 0, -262143, 65539, 0, -262142, 65539, 1, -262141, 65539, 1, -262140, 3, 1, -262139, 3, 1, -262138, 3, 1, -262137, 65539, 0, -262136, 3, 1, -262135, 3, 0, -262134, 65539, 1, -196598, 65539, 0, -131062, 65539, 0, -131061, 3, 1, -196597, 3, 0, -262133, 65539, 0, -262132, 3, 1, -196596, 65539, 0, -131060, 3, 1, -196595, 3, 1, -262131, 65539, 1, -131059, 65539, 1, -196594, 65539, 0, -262130, 65539, 1, -196612, 3, 1, -131076, 3, 1, -65540, 65539, 1, -4, 65539, 0, 65532, 65539, 1, 131068, 3, 0, 196604, 65539, 1, 262140, 3, 0, 262141, 65539, 0, 262142, 3, 0, 262143, 65539, 0, 196608, 3, 0, 196609, 65539, 1, 196610, 65539, 1, 196611, 65539, 0, 196612, 65539, 0, 196613, 3, 0, 196614, 65539, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 1, 196620, 3, 0, 196621, 65539, 1, 196622, 65539, 1)
 
 [connection signal="pressed" from="RadialShellButton" to="RadialShellButton" method="_on_radial_shell_button_pressed"]
