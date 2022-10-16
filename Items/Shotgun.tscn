@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdx6cubp2g0v3"]
+[gd_scene load_steps=17 format=3 uid="uid://bdx6cubp2g0v3"]
 
 [ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://Sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
 [ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://Sprites/shotgunShells.png" id="2_1rg2s"]
@@ -42,6 +42,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_60bso"]
+resource_name = "audi"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunSprite/ShotgunShotSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fkpvf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunSprite/ShotgunShotSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nddqe"]
+_data = {
+"RESET": SubResource("Animation_fkpvf"),
+"audi": SubResource("Animation_60bso")
+}
+
 [node name="Shotgun" type="Node2D"]
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
@@ -67,13 +105,21 @@ unique_name_in_owner = true
 position = Vector2(-189.108, 19)
 scale = Vector2(1.00589, 1)
 stream = ExtResource("4_wut32")
+max_polyphony = 3
+bus = &"Reverb"
 
 [node name="ShotgunPumpSound" type="AudioStreamPlayer2D" parent="GunSprite"]
 unique_name_in_owner = true
 stream = ExtResource("5_kgyw5")
+bus = &"Deepen"
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(423, -27)
 
 [node name="Handle" type="Marker2D" parent="."]
 position = Vector2(94, 28)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nddqe")
+}

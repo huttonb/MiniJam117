@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://br0ieayt4b1a6"]
+[gd_scene load_steps=40 format=3 uid="uid://br0ieayt4b1a6"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
+[ext_resource type="Shader" path="res://characters/Shadow.gdshader" id="1_h4mye"]
 [ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="2_3bx78"]
 [ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
@@ -15,6 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://b4lq03sno4p2m" path="res://Sprites/Player/ChickenRightThigh.png" id="13_vjl2x"]
 [ext_resource type="Texture2D" uid="uid://nosr85724806" path="res://Sprites/Player/ChickenRightLeg.png" id="14_6hp0r"]
 [ext_resource type="Texture2D" uid="uid://bpl34av3yhywb" path="res://Sprites/Player/ChickenRightFoot.png" id="15_lrr70"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vdsk"]
+shader = ExtResource("1_h4mye")
+shader_parameter/deform = null
+shader_parameter/modulate = null
+shader_parameter/offset = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
 atlas = ExtResource("2_ycs8o")
@@ -784,6 +791,7 @@ height = 246.0
 radius = 271.066
 
 [node name="Player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_4vdsk")
 collision_layer = 32
 collision_mask = 34
 script = ExtResource("1_7u7se")

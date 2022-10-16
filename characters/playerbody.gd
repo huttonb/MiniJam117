@@ -15,7 +15,6 @@ func _physics_process(delta):
 	var new_velocity = direction * SPEED
 	velocity = new_velocity
 	move_and_slide()
-	print(velocity)
 	if velocity.length() > 1:
 		if velocity.x >= 0:
 			stateMachine.travel("Walk")
@@ -23,7 +22,6 @@ func _physics_process(delta):
 			stateMachine.travel("R_Walk")
 	elif(stateMachine.get_current_node() == "Walk" || stateMachine.get_current_node() == "R_Walk"):
 		stateMachine.travel("Idle")
-		print("idle")
 	_look(delta)
 	
 func _input(event):
