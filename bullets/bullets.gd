@@ -1,6 +1,11 @@
 extends Area2D
 
-const SPEED = 400
+class_name Bullet
+
+var travel_speed: int
+
+func _constructor():
+	travel_speed = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready ():
@@ -12,7 +17,7 @@ func _clean():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += transform.x * SPEED * delta
+	position += transform.x * travel_speed * delta
 
 func _on_bullet_body_entered(body):
 	if body.is_in_group("enemies"): # TODO

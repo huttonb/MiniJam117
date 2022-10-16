@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
-@export var shell: PackedScene
+const shell = preload("res://bullets/shell.tscn")
+const SniperShell = preload("res://bullets/sniperShell.tscn")
+const ShotgunShell = preload("res://bullets/shotgunShell.tscn")
+
+# @export var shell: PackedScene
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -400.0
@@ -32,7 +36,9 @@ func _input(event):
 
 func _shoot_shotgun():
 
-	var s = shell.instantiate()
+	# var s = shell.instantiate()
+	# var s = SniperShell.instantiate()
+	var s = ShotgunShell.instantiate()
 	owner.add_child(s)
 	s.transform = %Shotgun/Muzzle.global_transform
 	_play_shotgun_sounds()

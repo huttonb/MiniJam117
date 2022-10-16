@@ -9,12 +9,18 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Area2D",
+"class": &"Bullet",
+"language": &"GDScript",
+"path": "res://bullets/bullets.gd"
+}, {
 "base": "Node2D",
 "class": &"Shell",
 "language": &"GDScript",
 "path": "res://bullets/shell.gd"
 }]
 _global_script_class_icons={
+"Bullet": "",
 "Shell": ""
 }
 

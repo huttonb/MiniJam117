@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://beel3lm8tp083"]
+
+[ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="1_hde03"]
+[ext_resource type="Script" path="res://bullets/shotgunShell.gd" id="2_vjufu"]
+
+[node name="Shell" instance=ExtResource("1_hde03")]
+script = ExtResource("2_vjufu")
