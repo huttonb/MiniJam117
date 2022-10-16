@@ -776,8 +776,9 @@ graph_offset = Vector2(-103, -11)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_eibch"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dysc0"]
-radius = 103.078
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_im2h7"]
+radius = 51.0
+height = 246.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pkesg"]
 radius = 271.066
@@ -888,8 +889,9 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_eibch")
 
 [node name="GroundCollision" type="CollisionShape2D" parent="."]
-position = Vector2(9, 447)
-shape = SubResource("CircleShape2D_dysc0")
+position = Vector2(2, 459)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_im2h7")
 
 [node name="HurtArea" type="Area2D" parent="."]
 collision_mask = 12
