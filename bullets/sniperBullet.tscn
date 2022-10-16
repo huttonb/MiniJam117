@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr3ux7ck7w7k6"]
+
+[ext_resource type="PackedScene" uid="uid://botnhi4puv33b" path="res://bullets/bullets.tscn" id="1_1ureb"]
+[ext_resource type="Script" path="res://bullets/sniperBullet.gd" id="2_hjclf"]
+
+[node name="Bullet" instance=ExtResource("1_1ureb")]
+script = ExtResource("2_hjclf")
+
+[node name="Sprite2d" parent="." index="0"]
+position = Vector2(10, 9.5)
+scale = Vector2(2.25, 2.1875)
+
+[node name="CollisionShape2d" parent="." index="1"]
+position = Vector2(10, 8)
