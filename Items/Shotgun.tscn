@@ -1,92 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdx6cubp2g0v3"]
+[gd_scene load_steps=7 format=3 uid="uid://bdx6cubp2g0v3"]
 
-[ext_resource type="Texture2D" uid="uid://bjpierjcn6ba2" path="res://Sprites/ShotgunSpriteSheet.png" id="1_irfuq"]
+[ext_resource type="Texture2D" uid="uid://d2jje0ej4ogsr" path="res://Sprites/shotgun.png" id="1_3ayf7"]
 [ext_resource type="Texture2D" uid="uid://otp4tbtbbpvs" path="res://Sprites/shotgunShells.png" id="2_1rg2s"]
 [ext_resource type="Texture2D" uid="uid://ulhqq1uvpixn" path="res://Sprites/shotgunBackLayer.png" id="3_cu2a2"]
 [ext_resource type="AudioStream" uid="uid://ca88jje0anmbx" path="res://sounds/shotgunshot.wav" id="4_wut32"]
 [ext_resource type="AudioStream" uid="uid://d33mgpmo1hni4" path="res://sounds/shotgunpump.wav" id="5_kgyw5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ic4vs"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_snrhg"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxwks"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omn02"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(0, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqwjx"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(512, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sep1q"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(1024, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pkwbg"]
-atlas = ExtResource("1_irfuq")
-region = Rect2(0, 1024, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bqrss"]
-animations = [{
-"frames": [SubResource("AtlasTexture_ic4vs"), SubResource("AtlasTexture_snrhg"), SubResource("AtlasTexture_xxwks"), SubResource("AtlasTexture_omn02"), SubResource("AtlasTexture_jqwjx"), SubResource("AtlasTexture_sep1q"), SubResource("AtlasTexture_pkwbg")],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_60bso"]
-resource_name = "audi"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunSprite/ShotgunShotSound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_fkpvf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunSprite/ShotgunShotSound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nddqe"]
-_data = {
-"RESET": SubResource("Animation_fkpvf"),
-"audi": SubResource("Animation_60bso")
-}
+[ext_resource type="Texture2D" uid="uid://dne3f54c7tsiy" path="res://Sprites/shotgunPump.png" id="6_g7oj3"]
 
 [node name="Shotgun" type="Node2D"]
 
-[node name="GunSprite" type="AnimatedSprite2D" parent="."]
+[node name="GunSprite" type="Sprite2D" parent="."]
 position = Vector2(188, -19)
 scale = Vector2(0.994141, 1)
-frames = SubResource("SpriteFrames_bqrss")
-frame = 2
+texture = ExtResource("1_3ayf7")
 
 [node name="SideSaddle" type="Sprite2D" parent="GunSprite"]
 texture = ExtResource("2_1rg2s")
@@ -96,9 +22,6 @@ show_behind_parent = true
 position = Vector2(7.04124, -1)
 z_index = -1
 texture = ExtResource("3_cu2a2")
-
-[node name="Pump" type="Marker2D" parent="GunSprite"]
-position = Vector2(73.4302, 17)
 
 [node name="ShotgunShotSound" type="AudioStreamPlayer2D" parent="GunSprite"]
 unique_name_in_owner = true
@@ -113,13 +36,11 @@ unique_name_in_owner = true
 stream = ExtResource("5_kgyw5")
 bus = &"Deepen"
 
+[node name="Pump" type="Sprite2D" parent="GunSprite"]
+texture = ExtResource("6_g7oj3")
+
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(423, -27)
 
 [node name="Handle" type="Marker2D" parent="."]
 position = Vector2(94, 28)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nddqe")
-}

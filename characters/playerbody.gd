@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
-const Shell = preload("res://bullets/shell.tscn")
-const SniperShell = preload("res://bullets/sniperShell.tscn")
-const ShotgunShell = preload("res://bullets/shotgunShell.tscn")
+@export var shell: PackedScene
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -400.0
 
+var reloadTime = .3
+var shotGunReady = true
 var flipped = false: set = _flip_character
 
 @onready var stateMachine = %AnimationTree.get("parameters/playback")
+@onready var oldArmTransform = %LeftArmSprite.transform.origin
+@onready var oldShotgunTransform = %Shotgun.transform.origin
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -31,14 +33,27 @@ func _input(event):
 		_shoot_shotgun()
 
 func _shoot_shotgun():
+	if shotGunReady:
+		shotGunReady = false
+		var s = shell.instantiate()
+		owner.add_child(s)
+		s.transform = %Shotgun/Muzzle.global_transform
+		%LeftArmSprite.transform.origin = oldArmTransform
+		%Shotgun.transform.origin = oldShotgunTransform
+		%Shotgun/GunSprite.frame = 0
+		var tween := create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween.set_parallel(true) 
+		tween.tween_property(%LeftArmSprite, "transform:origin", %LeftArmSprite.transform.origin + %LeftArmSprite.transform.x - Vector2(15,0), reloadTime / 2)
+		tween.tween_property(%Shotgun, "transform:origin", %Shotgun.transform.origin + %Shotgun.transform.x - Vector2(25,0), reloadTime / 2)
+		tween.chain().tween_property(%LeftArmSprite, "transform:origin", %LeftArmSprite.transform.origin + %LeftArmSprite.transform.x + Vector2(15,0), reloadTime)
+		tween.tween_property(%Shotgun, "transform:origin", %Shotgun.transform.origin + %Shotgun.transform.x + Vector2(25,0), reloadTime / 2)
+		tween.tween_callback(reload).set_delay(reloadTime / 2)
+		_play_shotgun_sounds()
 
-	# var s = Shell.instantiate()
-	# var s = SniperShell.instantiate()
-	var s = ShotgunShell.instantiate()
-	owner.add_child(s)
-	s.transform = %Shotgun/Muzzle.global_transform
-	_play_shotgun_sounds()
-
+func reload():
+	shotGunReady = true
+	
+	
 func _play_shotgun_sounds():
 	%Shotgun/GunSprite/ShotgunShotSound.play()
 	%Shotgun/GunSprite/ShotgunShotSound.connect(

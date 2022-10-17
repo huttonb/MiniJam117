@@ -795,6 +795,7 @@ material = SubResource("ShaderMaterial_4vdsk")
 collision_layer = 32
 collision_mask = 34
 script = ExtResource("1_7u7se")
+shell = ExtResource("2_3bx78")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 visible = false
