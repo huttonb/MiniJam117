@@ -78,11 +78,22 @@ void fragment() {
 	smoke_fbm = sqrt(smoke_fbm);
 	smoke_fbm = clamp(smoke_fbm, 0.0, 1.0);
 	
-	COLOR = texture(TEXTURE,UV);
+	float shifted_alpha = texture(TEXTURE,UV).a;
+	float new_alpha = .5;
+
+	if (shifted_alpha < .5 || smoke_fbm == 0.0){
+		new_alpha = 0.0;
+	}
+	else{
+		new_alpha = smoke_fbm;
+	}
+
 	
-	COLOR.a -= smoke_fbm ;
-	COLOR.a += egg_s - 0.5;
-//	COLOR = vec4(smoke_fbm, smoke_fbm, smoke_fbm, smoke_fbm);
+	shifted_alpha = (1.0 / shifted_alpha) - 1.0 ;
+	COLOR = vec4(smoke_fbm, smoke_fbm, smoke_fbm, smoke_fbm);
+	
+
+	COLOR.a = new_alpha;
 
 
 }

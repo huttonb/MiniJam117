@@ -5,6 +5,7 @@ shader_type canvas_item;
 
 uniform int OCTAVES = 6;
 uniform vec2 center = vec2(0.5, 0.2);
+uniform float fade_out = 0.0;
 
 float rand(vec2 coord){
 	return fract(sin(dot(coord, vec2(10.0, 80.0)))* 40000.0);
@@ -75,6 +76,7 @@ void fragment() {
 	
 	
 	COLOR = vec4(smoke_fbm, smoke_fbm, smoke_fbm, smoke_fbm);
+	COLOR.a -= .3 - fade_out;
 
 
 }

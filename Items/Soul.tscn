@@ -1,27 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0w2g5ufm7dq4"]
+[gd_scene load_steps=8 format=3 uid="uid://b0w2g5ufm7dq4"]
 
 [ext_resource type="Shader" path="res://Items/SoulSkull.gdshader" id="1_xrj03"]
 [ext_resource type="Shader" path="res://Items/Soul.gdshader" id="1_yf6tb"]
-[ext_resource type="Texture2D" uid="uid://bxnmrknic01ej" path="res://Sprites/Items/soul1.png" id="2_duc4c"]
+[ext_resource type="Script" path="res://Items/GhostTrail.gd" id="4_v1b71"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cqm20"]
 shader = ExtResource("1_xrj03")
 shader_parameter/OCTAVES = null
 shader_parameter/center = null
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_raeqy"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68tg4"]
 shader = ExtResource("1_yf6tb")
 shader_parameter/OCTAVES = null
 shader_parameter/center = null
+shader_parameter/fade_out = null
 
-[node name="Soul" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ghg2"]
 
-[node name="Sprite2d2" type="Sprite2D" parent="."]
+[node name="Ghost" type="CharacterBody2D"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_cqm20")
 position = Vector2(22, -25)
-texture = ExtResource("2_duc4c")
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
+[node name="DetectionRange" type="Area2D" parent="."]
+scale = Vector2(6.04346, 6.04346)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+scale = Vector2(8.64745, 8.64745)
+shape = SubResource("CircleShape2D_raeqy")
+
+[node name="CollectionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionRange"]
+scale = Vector2(8.64745, 8.64745)
+shape = SubResource("CircleShape2D_raeqy")
+
+[node name="Soul" type="Node2D" parent="."]
+
+[node name="GhostTrail" type="Sprite2D" parent="Soul"]
 material = SubResource("ShaderMaterial_68tg4")
-position = Vector2(9, 112)
-texture = ExtResource("2_duc4c")
+position = Vector2(19, 93)
+script = ExtResource("4_v1b71")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6ghg2")
