@@ -11,8 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var new_velocity = Vector2.ZERO
-	var distance = global_position.distance_to(ghost.global_position)
-	if distance > 100:
-		new_velocity = global_position.direction_to(ghost.global_position) * (distance)
+	pass
+#	var new_velocity = Vector2.ZERO
+#	var distance = global_position.distance_to(ghost.global_position)
+#	if distance > 100:
+#		new_velocity = global_position.direction_to(ghost.global_position) * (distance)
 	#velocity = new_velocity
