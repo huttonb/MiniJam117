@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const Shell = preload("res://bullets/shell.tscn")
-const SniperShell = preload("res://bullets/sniperShell.tscn")
-const ShotgunShell = preload("res://bullets/shotgunShell.tscn")
+@export var shell: PackedScene
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -400.0
 
+var reloadTime = .3
+var shotGunReady = true
 var flipped = false: set = _flip_character
 
 # Holds all available shells
@@ -16,6 +16,8 @@ var shells = {}
 var shell_order_position = 0
 
 @onready var stateMachine = %AnimationTree.get("parameters/playback")
+@onready var oldArmTransform = %LeftArmSprite.transform.origin
+@onready var oldShotgunTransform = %Shotgun.transform.origin
 
 func _ready():
 	# Initialize the shells
@@ -34,13 +36,13 @@ func _physics_process(delta):
 			stateMachine.travel("R_Walk")
 	elif(stateMachine.get_current_node() == "Walk" || stateMachine.get_current_node() == "R_Walk"):
 		stateMachine.travel("Idle")
-		print("idle")
 	_look(delta)
 	
 func _input(event):
 	const clip = ["shotgun", "sniper", "default"]
 	if Input.is_action_pressed("shoot"):
 		_shoot_shotgun(clip)
+
 
 func _initialize_shells():
 	var default = Shell.instantiate()
@@ -56,22 +58,37 @@ func _initialize_shells():
 	shells[sniper.shell_name] = sniper
 
 func _shoot_shotgun(clip: Array):
-	# Use the ordered shell_order array to get the shell type
-	var shell_type = clip[shell_order_position]
-	# Use the shell type to get the initialized shell scene
-	var shell = shells[shell_type]
-	# Add the shell scene
-	owner.add_child(shell)
-	
-	shell.transform = %Shotgun/Muzzle.global_transform
-	_play_shotgun_sounds()
+  if shotGunReady:
+		shotGunReady = false
+    # Use the ordered shell_order array to get the shell type
+    var shell_type = clip[shell_order_position]
+    # Use the shell type to get the initialized shell scene
+    var shell = shells[shell_type]
+    # Add the shell scene
+    owner.add_child(shell)
 
-	# Iterate the shell_order_position iterator or restart the from the beginning
-	if shell_order_position < (len(clip) - 1):
-		shell_order_position += 1
-	else:
-		shell_order_position = 0
-		_initialize_shells()
+    shell.transform = %Shotgun/Muzzle.global_transform
+		%LeftArmSprite.transform.origin = oldArmTransform
+		%Shotgun.transform.origin = oldShotgunTransform
+		%Shotgun/GunSprite.frame = 0
+		var tween := create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween.set_parallel(true) 
+		tween.tween_property(%LeftArmSprite, "transform:origin", %LeftArmSprite.transform.origin + %LeftArmSprite.transform.x - Vector2(15,0), reloadTime / 2)
+		tween.tween_property(%Shotgun, "transform:origin", %Shotgun.transform.origin + %Shotgun.transform.x - Vector2(25,0), reloadTime / 2)
+		tween.chain().tween_property(%LeftArmSprite, "transform:origin", %LeftArmSprite.transform.origin + %LeftArmSprite.transform.x + Vector2(15,0), reloadTime)
+		tween.tween_property(%Shotgun, "transform:origin", %Shotgun.transform.origin + %Shotgun.transform.x + Vector2(25,0), reloadTime / 2)
+		tween.tween_callback(reload).set_delay(reloadTime / 2)
+		_play_shotgun_sounds()
+
+    # Iterate the shell_order_position iterator or restart the from the beginning
+    if shell_order_position < (len(clip) - 1):
+      shell_order_position += 1
+    else:
+      shell_order_position = 0
+      _initialize_shells()
+    
+func reload():
+	shotGunReady = true
 
 func _play_shotgun_sounds():
 	%Shotgun/GunSprite/ShotgunShotSound.play()

@@ -1,7 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://br0ieayt4b1a6"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
-[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
+[ext_resource type="Shader" path="res://characters/Shadow.gdshader" id="1_h4mye"]
+[ext_resource type="PackedScene" uid="uid://bk4ttr1wtfj8" path="res://bullets/shell.tscn" id="2_3bx78"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
 [ext_resource type="Texture2D" uid="uid://gpef6a5f5j61" path="res://Sprites/Player/ChickenBody.png" id="4_kvoqc"]
 [ext_resource type="Texture2D" uid="uid://fb1qvrovfn8j" path="res://Sprites/Player/ChickenNeck.png" id="5_xnqfy"]
@@ -15,17 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://nosr85724806" path="res://Sprites/Player/ChickenRightLeg.png" id="14_6hp0r"]
 [ext_resource type="Texture2D" uid="uid://bpl34av3yhywb" path="res://Sprites/Player/ChickenRightFoot.png" id="15_lrr70"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
-atlas = ExtResource("2_ycs8o")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e27te"]
-animations = [{
-"frames": [SubResource("AtlasTexture_f4s07")],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vdsk"]
+shader = ExtResource("1_h4mye")
+shader_parameter/deform = Vector2(0, 0)
+shader_parameter/modulate = null
+shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="Animation" id="Animation_80cg2"]
 resource_name = "Idle"
@@ -775,23 +770,22 @@ graph_offset = Vector2(-103, -11)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_eibch"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dysc0"]
-radius = 103.078
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_im2h7"]
+radius = 51.0
+height = 246.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pkesg"]
 radius = 271.066
 
 [node name="Player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_4vdsk")
 collision_layer = 32
 collision_mask = 34
 script = ExtResource("1_7u7se")
-
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(246, 195)
-frames = SubResource("SpriteFrames_e27te")
+shell = ExtResource("2_3bx78")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(66, 45)
 z_index = 1
 texture = ExtResource("4_kvoqc")
@@ -886,11 +880,12 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_eibch")
 
 [node name="GroundCollision" type="CollisionShape2D" parent="."]
-position = Vector2(9, 447)
-shape = SubResource("CircleShape2D_dysc0")
+position = Vector2(2, 459)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_im2h7")
 
 [node name="HurtArea" type="Area2D" parent="."]
-collision_mask = 12
+collision_mask = 28
 
 [node name="HurtCollision" type="CollisionShape2D" parent="HurtArea"]
 position = Vector2(14, 20)
