@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6iagbak4vymj"
-path="res://.godot/imported/ChickenRightArm.png-278a263eafea334f447ab0a8fb0d54bb.ctex"
+uid="uid://6imjuov31nwc"
+path="res://.godot/imported/ChickenLFoot.png-276ebbe6999b5af5549d6a811452f30f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/ChickenRightArm.png"
-dest_files=["res://.godot/imported/ChickenRightArm.png-278a263eafea334f447ab0a8fb0d54bb.ctex"]
+source_file="res://Sprites/Player/ChickenLFoot.png"
+dest_files=["res://.godot/imported/ChickenLFoot.png-276ebbe6999b5af5549d6a811452f30f.ctex"]
 
 [params]
 

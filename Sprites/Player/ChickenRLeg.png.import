@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bicr1kbn0rdfc"
-path="res://.godot/imported/ChickenLeftLeg.png-fce26ff432a41bf3e4a127dd1a614f12.ctex"
+uid="uid://nosr85724806"
+path="res://.godot/imported/ChickenRLeg.png-bd5b815aaa8cbb2d2c3ea69685ffd5d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/ChickenLeftLeg.png"
-dest_files=["res://.godot/imported/ChickenLeftLeg.png-fce26ff432a41bf3e4a127dd1a614f12.ctex"]
+source_file="res://Sprites/Player/ChickenRLeg.png"
+dest_files=["res://.godot/imported/ChickenRLeg.png-bd5b815aaa8cbb2d2c3ea69685ffd5d9.ctex"]
 
 [params]
 

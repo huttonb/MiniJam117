@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cuyupraxqelrq" path="res://Sprites/aspectRatioGuide.png" id="1_6lunb"]
 [ext_resource type="Texture2D" uid="uid://bno7h62gvv7vr" path="res://Sprites/LoadedShellLarge.png" id="3_oclx0"]
-[ext_resource type="PackedScene" uid="uid://br0ieayt4b1a6" path="res://characters/player.tscn" id="4_2opxv"]
+[ext_resource type="PackedScene" uid="uid://boljn23fivlxq" path="res://characters/player.tscn" id="4_2opxv"]
 [ext_resource type="Script" path="res://RadialShellButton.gd" id="4_5p63f"]
 [ext_resource type="Texture2D" uid="uid://djwjojybk78ot" path="res://Sprites/Terrain/BrickSheet.png" id="5_aixrj"]
 [ext_resource type="Texture2D" uid="uid://b773sx7dvo37l" path="res://Sprites/Terrain/BlackWallSheet.png" id="6_0jgnu"]

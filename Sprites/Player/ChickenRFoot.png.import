@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpl34av3yhywb"
-path="res://.godot/imported/ChickenRightFoot.png-2c04a65bce4d1ac36765287aabc84b11.ctex"
+path="res://.godot/imported/ChickenRFoot.png-18bc1721e66a7e77edbca9617aa12449.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/ChickenRightFoot.png"
-dest_files=["res://.godot/imported/ChickenRightFoot.png-2c04a65bce4d1ac36765287aabc84b11.ctex"]
+source_file="res://Sprites/Player/ChickenRFoot.png"
+dest_files=["res://.godot/imported/ChickenRFoot.png-18bc1721e66a7e77edbca9617aa12449.ctex"]
 
 [params]
 
