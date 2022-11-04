@@ -1,7 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://br0ieayt4b1a6"]
+[gd_scene load_steps=34 format=3 uid="uid://br0ieayt4b1a6"]
 
 [ext_resource type="Script" path="res://characters/playerbody.gd" id="1_7u7se"]
-[ext_resource type="Texture2D" uid="uid://pr2675ox4een" path="res://Sprites/fred.png" id="2_ycs8o"]
 [ext_resource type="PackedScene" uid="uid://bdx6cubp2g0v3" path="res://Items/Shotgun.tscn" id="3_kb4fd"]
 [ext_resource type="Texture2D" uid="uid://gpef6a5f5j61" path="res://Sprites/Player/ChickenBody.png" id="4_kvoqc"]
 [ext_resource type="Texture2D" uid="uid://fb1qvrovfn8j" path="res://Sprites/Player/ChickenNeck.png" id="5_xnqfy"]
@@ -14,18 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b4lq03sno4p2m" path="res://Sprites/Player/ChickenRightThigh.png" id="13_vjl2x"]
 [ext_resource type="Texture2D" uid="uid://nosr85724806" path="res://Sprites/Player/ChickenRightLeg.png" id="14_6hp0r"]
 [ext_resource type="Texture2D" uid="uid://bpl34av3yhywb" path="res://Sprites/Player/ChickenRightFoot.png" id="15_lrr70"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4s07"]
-atlas = ExtResource("2_ycs8o")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e27te"]
-animations = [{
-"frames": [SubResource("AtlasTexture_f4s07")],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_80cg2"]
 resource_name = "Idle"
@@ -786,11 +773,6 @@ collision_layer = 32
 collision_mask = 34
 script = ExtResource("1_7u7se")
 
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(246, 195)
-frames = SubResource("SpriteFrames_e27te")
-
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Skeleton2d" type="Skeleton2D" parent="Body"]
@@ -798,34 +780,85 @@ frames = SubResource("SpriteFrames_e27te")
 [node name="Waist" type="Bone2D" parent="Body/Skeleton2d"]
 
 [node name="Chest" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+position = Vector2(0, -143)
 
 [node name="Neck" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+position = Vector2(0, -118)
 
 [node name="Head" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/Neck"]
+position = Vector2(35, -65)
+rotation = 0.360185
+scale = Vector2(1, 1)
 
 [node name="RightShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+position = Vector2(-101, 26)
 
 [node name="RightArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder"]
+position = Vector2(-13, 99)
 
 [node name="RightHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder/RightArm"]
+position = Vector2(138, -14)
 
 [node name="LeftShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+position = Vector2(19, 34)
 
 [node name="LeftArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder"]
+position = Vector2(60, 11)
 
 [node name="LeftHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder/LeftArm"]
+position = Vector2(123, -15)
 
 [node name="RightThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+position = Vector2(19, 84)
 
 [node name="RightLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh"]
+position = Vector2(5, 106)
 
 [node name="RightFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh/RightLeg"]
+position = Vector2(3, 118)
 
 [node name="LeftThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+position = Vector2(-30, 85)
 
 [node name="LeftLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh"]
+position = Vector2(-2, 112)
 
 [node name="LeftFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh/LeftLeg"]
+position = Vector2(1, 112)
+
+[node name="BonePolygons" type="Node2D" parent="Body"]
+
+[node name="Head" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="Neck" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightShoulder" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightArm" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightHand" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftShoulder" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftArm" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftHand" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightThigh" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightLeg" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="RightFoot" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftThigh" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftLeg" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="LeftFoot" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="Polygon2d15" type="Polygon2D" parent="Body/BonePolygons"]
+
+[node name="Polygon2d16" type="Polygon2D" parent="Body/BonePolygons"]
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 position = Vector2(66, 45)
@@ -918,16 +951,18 @@ libraries = {
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_elh5p")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_eibch")
 
 [node name="GroundCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(9, 447)
 shape = SubResource("CircleShape2D_dysc0")
 
 [node name="HurtArea" type="Area2D" parent="."]
+visible = false
 collision_mask = 12
 
 [node name="HurtCollision" type="CollisionShape2D" parent="HurtArea"]
+visible = false
 position = Vector2(14, 20)
 shape = SubResource("CircleShape2D_pkesg")
