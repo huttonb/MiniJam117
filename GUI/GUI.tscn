@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://bftiigqupiay1"]
+
+[ext_resource type="Texture2D" uid="uid://bno7h62gvv7vr" path="res://Sprites/LoadedShellLarge.png" id="1_kaic0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Buttons" type="HFlowContainer" parent="."]
+offset_right = 1570.0
+offset_bottom = 256.0
+scale = Vector2(0.735398, 0.735398)
+metadata/_edit_use_anchors_ = true
+
+[node name="ShellButton1" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
+
+[node name="ShellButton2" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_left = 260.0
+offset_right = 516.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
+
+[node name="ShellButton3" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_left = 520.0
+offset_right = 776.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
+
+[node name="ShellButton4" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_left = 780.0
+offset_right = 1036.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
+
+[node name="ShellButton5" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_left = 1040.0
+offset_right = 1296.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
+
+[node name="ShellButton6" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+offset_left = 1300.0
+offset_right = 1556.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_kaic0")
