@@ -203,14 +203,23 @@ uv = PackedVector2Array(324.739, 177.003, 304.53, 177.7, 286.411, 209.756, 289.8
 
 [node name="Waist" type="Bone2D" parent="Body/Skeleton2d"]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 143.0
+bone_angle = -90.0
 
 [node name="Chest" type="Bone2D" parent="Body/Skeleton2d/Waist"]
 position = Vector2(0, -143)
 rest = Transform2D(1, 0, 0, 1, 0, -143)
+auto_calculate_length_and_angle = false
+length = 118.0
+bone_angle = -90.0
 
 [node name="Neck" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
 position = Vector2(0, -118)
 rest = Transform2D(1, 0, 0, 1, 0, -118)
+auto_calculate_length_and_angle = false
+length = 0.0
+bone_angle = 0.0
 
 [node name="Head" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/Neck"]
 rest = Transform2D(1, 0, 0, 1, 33, -28)
@@ -221,60 +230,86 @@ bone_angle = 0.0
 [node name="RightShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
 position = Vector2(-101, 26)
 rest = Transform2D(1, 0, 0, 1, -101, 26)
+auto_calculate_length_and_angle = false
+length = 145.715
+bone_angle = 101.079
 
 [node name="RightArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder"]
 position = Vector2(-28, 143)
 rest = Transform2D(1, 0, 0, 1, -28, 143)
+auto_calculate_length_and_angle = false
+length = 168.193
+bone_angle = -6.82924
 
 [node name="RightHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder/RightArm"]
 position = Vector2(167, -20)
 rest = Transform2D(1, 0, 0, 1, 167, -20)
-
-[node name="Shotgun" parent="Body/Skeleton2d/Waist/Chest/RightShoulder/RightArm/RightHand" instance=ExtResource("3_kb4fd")]
-unique_name_in_owner = true
-position = Vector2(-66.9996, 86.0001)
-scale = Vector2(1, 1)
-z_index = -1
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
 
 [node name="LeftShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
 position = Vector2(32, 70)
 rest = Transform2D(1, 0, 0, 1, 32, 70)
+auto_calculate_length_and_angle = false
+length = 51.9711
+bone_angle = 11.0937
 
 [node name="LeftArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder"]
 position = Vector2(51, 10)
 rest = Transform2D(1, 0, 0, 1, 51, 10)
+auto_calculate_length_and_angle = false
+length = 133.843
+bone_angle = -6.43474
 
 [node name="LeftHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder/LeftArm"]
 position = Vector2(133, -15)
 rest = Transform2D(1, 0, 0, 1, 133, -15)
-
-[node name="RightShoulder" type="Marker2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder"]
-unique_name_in_owner = true
-position = Vector2(34.222, 95.4951)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
 
 [node name="RightThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
 position = Vector2(-61, 84)
 rest = Transform2D(1, 0, 0, 1, -61, 84)
+auto_calculate_length_and_angle = false
+length = 91.0
+bone_angle = 90.0
 
 [node name="RightLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh"]
 position = Vector2(0, 91)
 rest = Transform2D(1, 0, 0, 1, 0, 91)
+auto_calculate_length_and_angle = false
+length = 111.759
+bone_angle = 96.6799
 
 [node name="RightFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh/RightLeg"]
 position = Vector2(-13, 111)
 rest = Transform2D(1, 0, 0, 1, -13, 111)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
 
 [node name="LeftThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
 position = Vector2(40, 84)
 rest = Transform2D(1, 0, 0, 1, 40, 84)
+auto_calculate_length_and_angle = false
+length = 91.0
+bone_angle = 90.0
 
 [node name="LeftLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh"]
 position = Vector2(0, 91)
 rest = Transform2D(1, 0, 0, 1, 0, 91)
+auto_calculate_length_and_angle = false
+length = 111.759
+bone_angle = 96.6799
 
 [node name="LeftFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh/LeftLeg"]
 position = Vector2(-13, 111)
 rest = Transform2D(1, 0, 0, 1, -13, 111)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -300,3 +335,12 @@ collision_mask = 12
 visible = false
 position = Vector2(14, 20)
 shape = SubResource("CircleShape2D_pkesg")
+
+[node name="Shotgun" parent="." instance=ExtResource("3_kb4fd")]
+unique_name_in_owner = true
+position = Vector2(-28.9996, 92.0001)
+z_index = -1
+
+[node name="RightShoulder" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(66.222, 22.4951)
