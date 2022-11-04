@@ -3,6 +3,10 @@ extends Node2D
 class_name Shell
 
 const Bullet = preload("res://bullets/bullets.tscn")
+var shell_name: String
+
+func _constructor():
+	shell_name = "default"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

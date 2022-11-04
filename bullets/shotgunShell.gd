@@ -2,6 +2,9 @@ extends Shell
 
 const ShotgunPellet = preload("res://bullets/shotgunPellet.tscn")
 
+func _constructor():
+	shell_name = "shotgun"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_spread()
