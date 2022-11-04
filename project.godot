@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="MiniJam117"
 run/main_scene="res://TestScene.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://Sprites/Enemies/chickenIcon.png"
 <<<<<<<HEADrun/main_scene="res://characters/player.tscn"
 
