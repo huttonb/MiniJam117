@@ -791,6 +791,42 @@ visible = false
 position = Vector2(246, 195)
 frames = SubResource("SpriteFrames_e27te")
 
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Skeleton2d" type="Skeleton2D" parent="Body"]
+
+[node name="Waist" type="Bone2D" parent="Body/Skeleton2d"]
+
+[node name="Chest" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+
+[node name="Neck" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+
+[node name="Head" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/Neck"]
+
+[node name="RightShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+
+[node name="RightArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder"]
+
+[node name="RightHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/RightShoulder/RightArm"]
+
+[node name="LeftShoulder" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest"]
+
+[node name="LeftArm" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder"]
+
+[node name="LeftHand" type="Bone2D" parent="Body/Skeleton2d/Waist/Chest/LeftShoulder/LeftArm"]
+
+[node name="RightThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+
+[node name="RightLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh"]
+
+[node name="RightFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/RightThigh/RightLeg"]
+
+[node name="LeftThigh" type="Bone2D" parent="Body/Skeleton2d/Waist"]
+
+[node name="LeftLeg" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh"]
+
+[node name="LeftFoot" type="Bone2D" parent="Body/Skeleton2d/Waist/LeftThigh/LeftLeg"]
+
 [node name="BodySprite" type="Sprite2D" parent="."]
 position = Vector2(66, 45)
 z_index = 1
