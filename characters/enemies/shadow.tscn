@@ -55,7 +55,6 @@ texture = ExtResource("10_lb1ol")
 texture = ExtResource("11_6qo4o")
 
 [node name="RightFoot" type="Sprite2D" parent="Chest/RightThigh/RightLeg"]
-position = Vector2(41, 8)
 texture = ExtResource("12_hd1vt")
 
 [node name="LeftThigh" type="Sprite2D" parent="Chest"]
