@@ -4,10 +4,11 @@ const Shell = preload("res://bullets/shell.tscn")
 const SniperShell = preload("res://bullets/sniperShell.tscn")
 const ShotgunShell = preload("res://bullets/shotgunShell.tscn")
 
-const SPEED = 600.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 1200.0
+
 
 var flipped = false: set = _flip_character
+var walking = true
 
 # Holds all available shells
 var shells = {}
@@ -23,15 +24,24 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
-	var new_velocity = direction * SPEED
+	var new_velocity
+	if walking:
+		new_velocity = direction * SPEED 
+	else:
+		new_velocity = direction * SPEED * 2
 	velocity = new_velocity
 	move_and_slide()
 	if velocity.length() > 1:
 		if velocity.x >= 0:
-			stateMachine.travel("Walk")
+			if !flipped:
+				stateMachine.travel("Walk")
+			else:
+				stateMachine.travel("R_Walk")
 		elif velocity.x < 0:
-			stateMachine.travel("R_Walk")
+			if !flipped:
+				stateMachine.travel("R_Walk")
+			else:
+				stateMachine.travel("Walk")
 	elif(stateMachine.get_current_node() == "Walk" || stateMachine.get_current_node() == "R_Walk"):
 		stateMachine.travel("Idle")
 		print("idle")
@@ -41,6 +51,10 @@ func _input(event):
 	const clip = ["shotgun", "sniper", "default"]
 	if Input.is_action_pressed("shoot"):
 		_shoot_shotgun(clip)
+	if Input.is_action_just_pressed("run"):
+		walking = false
+	if Input.is_action_just_released("run"):
+		walking = true
 
 func _initialize_shells():
 	var default = Shell.instantiate()
