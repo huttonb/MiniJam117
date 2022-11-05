@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yr4ykj251nqn"]
+[gd_scene load_steps=18 format=3 uid="uid://yr4ykj251nqn"]
 
 [ext_resource type="Texture2D" uid="uid://cqwtdlrdhvlao" path="res://Sprites/Enemies/shadowBody.png" id="1_1hftt"]
 [ext_resource type="Texture2D" uid="uid://b3dkcvp3hb5o0" path="res://Sprites/Enemies/shadowNeck.png" id="2_d6ifp"]
@@ -16,53 +16,152 @@
 [ext_resource type="Texture2D" uid="uid://4qw7h30ymsot" path="res://Sprites/Enemies/shadowLeftLeg.png" id="14_svgtl"]
 [ext_resource type="Texture2D" uid="uid://dbokytib8aici" path="res://Sprites/Enemies/shadowLeftFoot.png" id="15_ud0qx"]
 
-[node name="shadow" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3kna"]
+radius = 416.0
+height = 1132.0
 
-[node name="Chest" type="Sprite2D" parent="."]
-texture = ExtResource("1_1hftt")
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_v7xyt"]
+graph_offset = Vector2(-455.486, -35.3085)
 
-[node name="Neck" type="Sprite2D" parent="Chest"]
-texture = ExtResource("2_d6ifp")
+[node name="shadow" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
 
-[node name="Head" type="Sprite2D" parent="Chest/Neck"]
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Skeleton2d" type="Skeleton2D" parent="Body"]
+
+[node name="HipBone" type="Bone2D" parent="Body/Skeleton2d"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="ChestBone" type="Bone2D" parent="Body/Skeleton2d/HipBone"]
+position = Vector2(44, -201)
+rest = Transform2D(1, 0, 0, 1, 44, -201)
+
+[node name="NeckBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone"]
+position = Vector2(83, -165)
+rest = Transform2D(1, 0, 0, 1, 83, -165)
+
+[node name="HeadBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone/NeckBone"]
+position = Vector2(42, -64)
+rest = Transform2D(1, 0, 0, 1, 42, -64)
+
+[node name="Head" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/NeckBone/HeadBone"]
+position = Vector2(-145, 320)
 texture = ExtResource("3_chp8s")
 
-[node name="RightShoulder" type="Sprite2D" parent="Chest"]
-position = Vector2(28, 55)
+[node name="NeckSpriteSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/NeckBone"]
+position = Vector2(-103, 256)
+texture = ExtResource("2_d6ifp")
+
+[node name="RightShoulderBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone"]
+position = Vector2(161, -11)
+rest = Transform2D(1, 0, 0, 1, 161, -11)
+
+[node name="RightArmBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone/RightShoulderBone"]
+position = Vector2(164, 45)
+rest = Transform2D(1, 0, 0, 1, 164, 45)
+
+[node name="RightHandBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone/RightShoulderBone/RightArmBone"]
+position = Vector2(78, 170)
+rest = Transform2D(1, 0, 0, 1, 78, 170)
+
+[node name="RightHandSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/RightShoulderBone/RightArmBone/RightHandBone"]
+position = Vector2(-395, -58)
+rotation = -0.0779225
+texture = ExtResource("6_j08md")
+
+[node name="RightArmSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/RightShoulderBone/RightArmBone"]
+position = Vector2(-317, 112)
+rotation = -0.0779225
+texture = ExtResource("5_2b5fx")
+
+[node name="RightShoulderSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/RightShoulderBone"]
+position = Vector2(-153, 157)
 rotation = -0.0779225
 texture = ExtResource("4_qkeit")
 
-[node name="RightArm" type="Sprite2D" parent="Chest/RightShoulder"]
-texture = ExtResource("5_2b5fx")
+[node name="LeftShoulderBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone"]
+position = Vector2(-134, -54)
+rest = Transform2D(1, 0, 0, 1, -134, -54)
 
-[node name="RightHand" type="Sprite2D" parent="Chest/RightShoulder/RightArm"]
-texture = ExtResource("6_j08md")
+[node name="LeftArmBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone/LeftShoulderBone"]
+position = Vector2(-218, 58)
+rest = Transform2D(1, 0, 0, 1, -218, 58)
 
-[node name="LeftShoulder" type="Sprite2D" parent="Chest"]
-texture = ExtResource("7_1n4ym")
+[node name="LeftHandBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/ChestBone/LeftShoulderBone/LeftArmBone"]
+position = Vector2(-61, 168)
+rest = Transform2D(1, 0, 0, 1, -61, 168)
 
-[node name="LeftArm" type="Sprite2D" parent="Chest/LeftShoulder"]
-texture = ExtResource("8_55ka7")
-
-[node name="LeftHand" type="Sprite2D" parent="Chest/LeftShoulder/LeftArm"]
+[node name="LeftHandSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/LeftShoulderBone/LeftArmBone/LeftHandBone"]
+position = Vector2(393, -81)
 texture = ExtResource("9_4mmcu")
 
-[node name="RightThigh" type="Sprite2D" parent="Chest"]
-position = Vector2(-61, 10)
-texture = ExtResource("10_lb1ol")
+[node name="LeftArmSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/LeftShoulderBone/LeftArmBone"]
+position = Vector2(332, 87)
+texture = ExtResource("8_55ka7")
 
-[node name="RightLeg" type="Sprite2D" parent="Chest/RightThigh"]
-texture = ExtResource("11_6qo4o")
+[node name="LeftShoulderSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone/LeftShoulderBone"]
+position = Vector2(114, 145)
+texture = ExtResource("7_1n4ym")
 
-[node name="RightFoot" type="Sprite2D" parent="Chest/RightThigh/RightLeg"]
+[node name="ChestSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/ChestBone"]
+position = Vector2(-20, 91)
+texture = ExtResource("1_1hftt")
+
+[node name="RightThighBone" type="Bone2D" parent="Body/Skeleton2d/HipBone"]
+position = Vector2(74, 68)
+rest = Transform2D(1, 0, 0, 1, 74, 68)
+
+[node name="RightLegBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/RightThighBone"]
+position = Vector2(208, 109)
+rest = Transform2D(1, 0, 0, 1, 208, 109)
+
+[node name="RightFootBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/RightThighBone/RightLegBone"]
+position = Vector2(-105, 127)
+rest = Transform2D(1, 0, 0, 1, -105, 127)
+
+[node name="RightFootSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/RightThighBone/RightLegBone/RightFootBone"]
+position = Vector2(-214, -404)
 texture = ExtResource("12_hd1vt")
 
-[node name="LeftThigh" type="Sprite2D" parent="Chest"]
-position = Vector2(19, -2)
-texture = ExtResource("13_87wki")
+[node name="RightLegSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/RightThighBone/RightLegBone"]
+position = Vector2(-319, -277)
+texture = ExtResource("11_6qo4o")
 
-[node name="LeftLeg" type="Sprite2D" parent="Chest/LeftThigh"]
+[node name="RightThighSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/RightThighBone"]
+position = Vector2(-111, -168)
+texture = ExtResource("10_lb1ol")
+
+[node name="LeftThighBone" type="Bone2D" parent="Body/Skeleton2d/HipBone"]
+position = Vector2(-99, 64)
+rest = Transform2D(1, 0, 0, 1, -99, 64)
+
+[node name="LeftLegBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/LeftThighBone"]
+position = Vector2(-185, 99)
+rest = Transform2D(1, 0, 0, 1, -185, 99)
+
+[node name="LeftFootBone" type="Bone2D" parent="Body/Skeleton2d/HipBone/LeftThighBone/LeftLegBone"]
+position = Vector2(109, 132)
+rest = Transform2D(1, 0, 0, 1, 109, 132)
+
+[node name="LeftFootSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/LeftThighBone/LeftLegBone/LeftFootBone"]
+position = Vector2(218, -407)
+texture = ExtResource("15_ud0qx")
+
+[node name="LeftLegSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/LeftThighBone/LeftLegBone"]
+position = Vector2(327, -275)
 texture = ExtResource("14_svgtl")
 
-[node name="LeftFoot" type="Sprite2D" parent="Chest/LeftThigh/LeftLeg"]
-texture = ExtResource("15_ud0qx")
+[node name="LeftThighSprite" type="Sprite2D" parent="Body/Skeleton2d/HipBone/LeftThighBone"]
+position = Vector2(142, -176)
+texture = ExtResource("13_87wki")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v3kna")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_v7xyt")
+anim_player = NodePath("../AnimationPlayer")
